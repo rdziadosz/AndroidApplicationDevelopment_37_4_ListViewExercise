@@ -1,7 +1,10 @@
 package eu.dziadosz.listviewexercise;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -41,5 +44,20 @@ public class MainActivity extends AppCompatActivity {
         // set data to listView with adapter
         listview.setAdapter(adapter);
 
+
+        // item listener
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // get list row data (now String as a phone name)
+                String phone = list.get(position);
+                // create an explicit intent
+                Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+                // add data to intent
+                intent.putExtra("phone",phone);
+                // start a new activity
+                startActivity(intent);
+            }
+        });
     }
 }
