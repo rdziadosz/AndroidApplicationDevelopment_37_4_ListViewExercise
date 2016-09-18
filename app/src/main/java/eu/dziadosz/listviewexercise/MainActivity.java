@@ -33,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
         //ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
 
         // add data to ArrayAdapter (own custom layout)
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.rowlayout, R.id.textView, list);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.rowlayout, R.id.textView, list);
+
+        // create custom adapter
+        PhoneArrayAdapter adapter = new PhoneArrayAdapter(this, list);
 
         // set data to listView with adapter
         listview.setAdapter(adapter);
