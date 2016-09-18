@@ -30,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // add data to ArrayAdapter (default Android ListView style/layout)
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+        //ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+
+        // add data to ArrayAdapter (own custom layout)
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.rowlayout, R.id.textView, list);
 
         // set data to listView with adapter
         listview.setAdapter(adapter);
